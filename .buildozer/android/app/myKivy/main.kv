@@ -1,0 +1,50 @@
+
+<MenuScreen>:
+    Image:
+        source: 'data/icon.png'
+        pos_hint: {'center_x':.5,'center_y':.7}
+        size_hint: 1,.9
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: 'About'
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'about'
+            size_hint: None, None
+            size: 200, 60
+            pos_hint: {'right': 1}
+        Button:
+            text: 'Goto settings'
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'settings'
+            size_hint: None, None
+            size: 200, 60
+            pos_hint: {'right': 1}
+        Button:
+            text: 'Bluetooth Connect'
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'bluetooth'
+            size_hint: None, None
+            size: 200, 60
+            pos_hint: {'right': 1}
+        Button:
+            text: 'Run'
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'run'
+            size_hint: None, None
+            size: 200, 60
+            pos_hint: {'right': 1}
+        Button:
+            text: 'Quit'
+            size_hint: None, None
+            size: 200, 60
+            pos_hint: {'right': 1}
+
+
+
+           
+

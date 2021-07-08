@@ -1,0 +1,19 @@
+
+<RunScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: 'Run'
+            size_hint: None, None
+            size: 200, 60
+            pos_hint: {'right': 1}
+        Button:
+            text: 'Back to menu'
+            size_hint: None, None
+            size: 200, 60
+            pos_hint: {'right': 1}
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+           
+

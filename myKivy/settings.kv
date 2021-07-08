@@ -1,0 +1,65 @@
+
+
+<SettingsScreen>:
+
+    Image:
+        source: 'data/seeds.png'
+        pos_hint: {'center_x':.5,'center_y':.7}
+        size_hint: 1,.9
+
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: 'Save settings'
+            size_hint: None, None
+            size: 200, 60
+            pos_hint: {'right': 1}
+        Button:
+            text: 'Back to menu'
+            size_hint: None, None
+            size: 200, 60
+            pos_hint: {'right': 1}
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: 'Wheat'
+            size_hint: None, None
+            size: 150, 60
+            pos_hint: {'left': 1}
+        Button:
+            text: 'Barley'
+            size_hint: None, None
+            size: 150, 60
+            pos_hint: {'left': 1}
+        Button:
+            text: 'Corn'
+            size_hint: None, None
+            size: 150, 60
+            pos_hint: {'left': 1}
+        Button:
+            text: 'Sunflower'
+            size_hint: None, None
+            size: 150, 60
+            pos_hint: {'left': 1}
+        Button:
+            text: 'Peas'
+            size_hint: None, None
+            size: 150, 60
+            pos_hint: {'left': 1}
+
+    BoxLayout:
+        orientation: 'horizontal'
+        Button:
+            text: 'Number of Seeding Points'
+            size_hint: None, None
+            size: 300, 60
+            pos_hint: {'top': 1}
+        Button:
+            text: 'Num'
+            size_hint: None, None
+            size: 60, 60
+            pos_hint: {'top': 1}
+
