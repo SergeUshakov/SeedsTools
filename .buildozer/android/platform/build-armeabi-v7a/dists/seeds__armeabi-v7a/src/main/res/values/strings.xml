@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Seeds</string>
-    <string name="private_version">1625690112.793241</string>
+    <string name="private_version">1627065021.6863136</string>
     <string name="presplash_color">#000000</string>
     <string name="urlScheme">kivy</string>
 </resources>

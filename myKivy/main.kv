@@ -1,12 +1,15 @@
 
-<MenuScreen>:
+<Menu>:
     Image:
+        id: main_my_image
         source: 'data/icon.png'
         pos_hint: {'center_x':.5,'center_y':.7}
         size_hint: 1,.9
     BoxLayout:
+        id: main_my_box
         orientation: 'vertical'
         Button:
+            id: about
             text: 'About'
             on_press:
                 root.manager.transition.direction = 'left'
@@ -34,16 +37,17 @@
             text: 'Run'
             on_press:
                 root.manager.transition.direction = 'left'
-                root.manager.current = 'run'
+                root.manager.current = 'my_run'
             size_hint: None, None
             size: 200, 60
             pos_hint: {'right': 1}
         Button:
+            id: btnExit
             text: 'Quit'
             size_hint: None, None
             size: 200, 60
             pos_hint: {'right': 1}
-
+            on_press: app.stop()
 
 
            

@@ -1,14 +1,14 @@
 'This program is designed to control the planter
-                    when applying seeds of various crops. Control is carried out
-                    by pre-installed volumetric motion sensors. The sensors are
-                    universal and interchangeable; they do not require preliminary
-                    installation. You just need to turn on the sensor and pair it
-                    with your phone. This is done automatically. All information
-                    about the operation of the seeder is displayed on the phone screen.
-                    In the event of an emergency, a message is displayed on the
-                    phone screen immediately. This can be low or high seeding speed,
-                    no seeds in the hopper, interruption of seed supply due
-                    to clogged seed pipe.'
+when applying seeds of various crops. Control is carried out
+by pre-installed volumetric motion sensors. The sensors are
+universal and interchangeable; they do not require preliminary
+installation. You just need to turn on the sensor and pair it
+with your phone. This is done automatically. All information
+about the operation of the seeder is displayed on the phone screen.
+In the event of an emergency, a message is displayed on the
+phone screen immediately. This can be low or high seeding speed,
+no seeds in the hopper, interruption of seed supply due
+to clogged seed pipe.'
 
 
 
@@ -19,3 +19,64 @@
             pos: self.pos
             size: self.size
             source: 'data/icon.png'
+
+rectangle: self.x, self.y, self.width, self.height
+
+
+
+from matplotlib import pyplot as plt
+from celluloid import Camera
+
+    def on_plot(self):
+        fig = plt.figure()
+        camera = Camera(fig)
+
+        for i in range(10):
+            plt.plot([i] * 10)
+            camera.snap()
+
+        animation = camera.animate()
+        animation.save('celluloid_minimal.gif', writer='imagemagick')
+
+
+    def on_plot(self):
+        from math import sin
+        from kivy.garden.graph import Graph, MeshLinePlot
+        graph = Graph(xlabel='X', ylabel='Y', x_ticks_minor=5,
+                      x_ticks_major=25, y_ticks_major=1,
+                      y_grid_label=True, x_grid_label=True, padding=5,
+                      x_grid=True, y_grid=True, xmin=-0, xmax=100, ymin=-1, ymax=1)
+        plot = MeshLinePlot(color=[1, 0, 0, 1])
+        plot.points = [(x, sin(x / 10.)) for x in range(0, 101)]
+        graph.add_plot(plot)
+
+
+    Clock.schedule_interval(self.next, .0005)  # Creates Clock event scheduling next() every 5-1000th of a second.
+
+class SeedsApp(App):
+
+    def build(self):
+
+        EventLoop.ensure_window()
+
+        # Create the screen manager
+        sm = ScreenManager()
+
+        sm.add_widget(Menu(name='menu'))
+        sm.add_widget(Settings(name='settings'))
+        sm.add_widget(About(name='about'))
+        sm.add_widget(My_run(name='my_run'))
+        sm.add_widget(Bluetooth(name='bluetooth'))
+
+        return sm
+
+    def on_start(self):
+        #Clock.schedule_interval(self.root.ids.run.update, 60 ** -1)
+
+        print(self.root.ids)
+
+        ip = App.get_running_app().root.get_screen('my_run').ids
+        print(ip)
+        print(ip.get('run'))
+        print(ip.get('run.on_press'))
+        #Clock.schedule_interval(ip.get('run'), 60 ** -1)

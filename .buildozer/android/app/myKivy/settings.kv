@@ -1,6 +1,4 @@
-
-
-<SettingsScreen>:
+<Settings>:
 
     Image:
         source: 'data/seeds.png'
@@ -52,14 +50,29 @@
 
     BoxLayout:
         orientation: 'horizontal'
-        Button:
+        Label:
             text: 'Number of Seeding Points'
             size_hint: None, None
             size: 300, 60
             pos_hint: {'top': 1}
-        Button:
-            text: 'Num'
+            markup: True
+            shorten: True
+            color: 1, 1 ,1 , 1
+            canvas.before:
+                Color:
+                    rgba: 0.35, 0.35, 0.35, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        TextInput:
+            id: input
+            text: "12"
+            font_size: 40
             size_hint: None, None
             size: 60, 60
             pos_hint: {'top': 1}
+            multiline: False
+            on_text_validate: root.on_enter()
+
 
